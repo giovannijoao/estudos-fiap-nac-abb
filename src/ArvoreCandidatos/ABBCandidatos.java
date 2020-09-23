@@ -8,6 +8,11 @@ public class ABBCandidatos {
 		Folha dir, esq;
 	}
 	
+	public class InformacoesMaiorTempoExperiencia {
+		public int comparacoesRealizadas;
+		public Candidato candidato;
+	}
+	
 	public Folha root = null;
 	
 	public Folha inserir(Folha p, Candidato candidato) {
@@ -59,8 +64,36 @@ public class ABBCandidatos {
 				listaMaiorExperiencia(p.dir, lista);
 			lista.add(p.candidato);
 			if (p.esq != null)
-				listaMaiorExperiencia(p.esq, lista);			
-			System.out.println("Lista " + p.candidato.nome);
+				listaMaiorExperiencia(p.esq, lista);
+		}
+	}
+	
+	public InformacoesMaiorTempoExperiencia consultaMaiorTempoExperiencia(Folha p, int iteracoes) {
+		InformacoesMaiorTempoExperiencia tmpInfo = new InformacoesMaiorTempoExperiencia();		
+		Folha aux = p;
+		
+		if (p == null) {
+			tmpInfo.comparacoesRealizadas = 0;
+			return tmpInfo;
+		}
+		
+		tmpInfo.comparacoesRealizadas = 1;
+		while (aux.dir != null) {
+			tmpInfo.comparacoesRealizadas++;
+			aux = aux.dir;
+		}
+		tmpInfo.candidato = aux.candidato;
+		return tmpInfo;
+		
+	}
+	
+	public void listaEmOrdem(Folha p, ArrayList<Candidato> lista) {		
+		if (p != null) {
+			if (p.esq != null)
+				listaEmOrdem(p.esq, lista);			
+			lista.add(p.candidato);
+			if (p.dir != null)
+				listaEmOrdem(p.dir, lista);
 		}
 	}
 }
