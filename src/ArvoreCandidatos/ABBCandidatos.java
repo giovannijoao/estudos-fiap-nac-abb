@@ -68,7 +68,7 @@ public class ABBCandidatos {
 		}
 	}
 	
-	public InformacoesMaiorTempoExperiencia consultaMaiorTempoExperiencia(Folha p, int iteracoes) {
+	public InformacoesMaiorTempoExperiencia consultaMaiorTempoExperiencia(Folha p) {
 		InformacoesMaiorTempoExperiencia tmpInfo = new InformacoesMaiorTempoExperiencia();		
 		Folha aux = p;
 		

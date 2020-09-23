@@ -117,8 +117,8 @@ public class Main{
 			System.out.println("Cancelando busca.");
 		} else {			
 			InformacoesMaiorTempoExperiencia tmpInfo;
-			if (dado == 1) tmpInfo = treeSI.consultaMaiorTempoExperiencia(treeSI.root, 0);
-			else tmpInfo = treeEP.consultaMaiorTempoExperiencia(treeEP.root, 0);
+			if (dado == 1) tmpInfo = treeSI.consultaMaiorTempoExperiencia(treeSI.root);
+			else tmpInfo = treeEP.consultaMaiorTempoExperiencia(treeEP.root);
 			if (tmpInfo.comparacoesRealizadas == 0) {
 				System.out.println("Sem candidatos na árvore");
 			} else {
